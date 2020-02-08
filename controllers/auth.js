@@ -33,7 +33,7 @@ module.exports = (app) => {
               user.save().then((user) => {
               var token = jwt.sign({ _id: user._id }, process.env.SECRET, { expiresIn: "60 days" });
               res.cookie('nToken', token, { maxAge: 90000000000000, httpOnly: true });
-              res.redirect('/');
+              res.redirect('/profiles/' + user.username);
 
               }).catch((err) => {
                 console.log(err.message);
@@ -96,7 +96,7 @@ module.exports = (app) => {
 
         // Set a cookie and redirect to dashboard
         res.cookie('nToken', token, { maxAge: 9000000000000000, httpOnly: true });
-        res.redirect('/');
+        res.redirect('/profiles/' + user.username);
       });
     }).catch((err) => {
       console.log(err);

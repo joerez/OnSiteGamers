@@ -23,13 +23,25 @@ module.exports = (app) => {
 
       if (req.user) {
         User.findById(req.user._id, (err, user) => {
-          res.render('index/index', { currentUser: user, players, factions });
+          res.render('index', { currentUser: user, players, factions });
         })
       } else {
       res.render('index/index', { players, factions });
       }
     })
     })
+  })
+
+  app.get('/market', (req, res) => {
+
+    if (req.user) {
+      User.findById(req.user._id, (err, user) => {
+        res.render('index/market', { currentUser: user });
+      })
+    } else {
+      res.render('index/market');
+    }
+
   })
 
 
@@ -67,23 +79,44 @@ module.exports = (app) => {
 
 
 app.get('/profiles/:username', (req, res) => {
-  let currentUser;
 
 
-      Comment.find({username: req.params.username}).then((comments) => {
+  User.findOne({username: req.params.username}).then((profile) => {
+    const prof = profile;
+    if (req.user) {
+      User.findById(req.user._id).then((user) => {
+
+        let sameUser = false;
+
+        if (prof.username === user.username) {
+          sameUser = true
+        }
 
 
-  if (req.user) {
-    User.findById(req.user._id, (err, user) => {
-      res.render('index/profile', { currentUser: user, comments });
+        res.render('index/profile', { profile: prof, currentUser: user, sameUser: sameUser  });
+      })
+    } else {
+      res.render('index/profile', { profile: profile });
+    }
+  }).catch((err) => {
+    res.send('Profile not found')
+  })
+
+})
+
+app.post('/profiles/:username', (req, res) => {
+  User.findOne({username: req.params.username}).then((user) => {
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.bio = req.body.bio;
+    user.photo = req.body.photo;
+    user.contact = req.body.contact;
+    user.location = req.body.location;
+    user.save().then((user) => {
+      res.redirect('/profiles/' + user.username)
     })
-  } else {
-  res.render('index/profile', { comments });
-  }
+  })
 })
-
-})
-
 
 
 };

@@ -1,20 +1,59 @@
-  {{#if comments}}
-  <h3 align="center">{{comments.[0].username}}'s Profile</h3>
-  <center><a href="http://epicduel.artix.com/charpage.asp?id={{comments.[0].username}}">View Character Page</a></center>
-  <h4 align="center">Site Activity</h4>
+  <div class="profile-page">
 
-  <div class="stories-con">
 
-    {{#each comments}}
-      <div class="comment-box">{{#if ../currentUser.mod}}  <div class="admin-buttons-comment">  <!--Delete--><form method="POST" action="/comments/delete/{{this._id}}"><button class="delete-button" type="submit"><i class="material-icons">delete</i></button></form>  </div>  {{/if}}        {{#if this.onAPlayer}}<a href="/playersid/{{this.playerId}}">View Player</a>{{else}}<a href="/factionsid/{{this.factionId}}">View Faction</a>{{/if}}<p>
-        By: <a href="/profiles/{{this.username}}">{{this.username}}</a></p>
-        <p><b>{{this.title}}</b></p>
-        <p>{{this.content}}</p>
-        {{#if this.day}}<p class="theDayDate">{{this.day}}</p>{{/if}}
-      </div>
-    {{/each}}
-  </div>
+<h3 align="center">{{profile.username}}</h3>
+
+
+<div class="profile-container">
+  {{#if sameUser}}
+    <form method="POST" action="/profiles/{{profile.username}}">
+    <img src="{{profile.photo}}" />
+
+    <div>
+      Photo: 
+      <input name="photo" placeholder="photo url" value="{{profile.photo}}" />
+    </div>
+
+
+    <div>
+      Name: 
+      <input name="firstName" placeholder="First name" value="{{profile.firstName}}" /> <input name="lastName" placeholder="Last name" value="{{profile.lastName}}" />
+    </div>
+
+    <div>
+      Bio: 
+      <input name="bio" placeholder="Bio" value="{{profile.bio}}" />
+    </div>
+
+    <div>
+      Contact: 
+      <input name="contact" placeholder="contact" value="{{profile.contact}}" />
+    </div>
+
+    <div>
+      Location: 
+      <input name="location" placeholder="location" value="{{profile.location}}" />
+    </div>
+
+    <input type="submit" value="Save" />
+    </form>
 
   {{else}}
-  <h3 align="center">Post a story to see your profile page.</h3>
+    <img src="{{profile.photo}}" />
+    <div>Name: {{profile.firstName}} {{profile.lastName}}</div>
+    <div>Bio: {{profile.bio}}</div>
+    <div>Contact: {{profile.contact}}</div>
+    <div>Location: {{profile.location}}</div>
+
   {{/if}}
+</div>
+
+
+
+  </div>
+  
+  
+
+
+
+

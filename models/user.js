@@ -9,7 +9,14 @@ const UserSchema = new Schema({
   username        : { type : String, required: true, maxLength: 16 },
   posts           : [{ type : Schema.Types.ObjectId, ref: 'Post', required: true }],
   mod             : { type: Boolean, default: false },
-  banned             : { type: Boolean, default: false }
+  banned             : { type: Boolean, default: false },
+  firstName: String,
+  lastName: String,
+  photo: String,
+  bio: String,
+  location: String,
+  contact: String,
+  links: [String]
 });
 
 UserSchema.pre('save', function(next) {

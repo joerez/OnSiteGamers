@@ -1,17 +1,20 @@
-<nav class="blue">
+<nav class="white">
   <div class="nav-wrapper">
-    <a href="/" class="left brand-logo">Epic Duel Stories</a>
+    <a href="/" class="left brand-logo">OnSiteGamers</a>
     <ul class="right">
+      <li><a  href="/market">MarketPlace</a></li>
+
       {{#if currentUser.mod}}
-      <li><a href="/mod">Mod</a></li>
+      <li><a  href="/mod">Mod</a></li>
       {{/if}}
-      <li><a href="/recent">Recent</a></li>
       {{#if currentUser}}
-      <li><a href="/profiles/{{currentUser.username}}">Profile</a></li>
-      <li><a href="/logout">Logout</a></li>
+      <li><a  href="/profiles/{{currentUser.username}}">Profile</a></li>
+      <li><a  href="/logout">Logout</a></li>
       {{else}}
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Register</a></li>
+        <li><a  href="/">How It Works</a></li>
+
+        <li><a  href="/register">Join Today</a></li>
+        <li><a  href="/login">Log In</a></li>
       {{/if}}
 
     </ul>

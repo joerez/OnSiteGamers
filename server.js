@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/epicduelstories', {  });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/onsitegamers', {  });
 
 
 // override with POST having ?_method=DELETE or ?_method=PUT
@@ -75,5 +75,5 @@ require('./controllers/mod.js')(app);
 const port = process.env.PORT || 3000
 
 app.listen(port, () => {
-  console.log(`Epic Duel Stories listening on port ${port}!`);
+  console.log(`On Site Gamers listening on port ${port}!`);
 })

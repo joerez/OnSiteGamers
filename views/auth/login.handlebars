@@ -2,20 +2,22 @@
 
   <div class="auth-box">
     <form id="login-box" method="POST" action="/login">
-        <div class="top-lab">Login</div>
+        <div class="top-lab">Welcome back gamer</div>
 
         {{#if error}}
         <div id="error">{{{error}}}</div>
         {{/if}}
 
-        <input class="field" placeholder="Username" name="username" type="text">
+        <input class="field" maxlength="16" placeholder="Gamer Username" name="username" type="text">
         <input class="field" placeholder="Password" name="password" type="password">
 
-        <input class="auth-btn btn blue" value="Login" type="submit">
+        <input class="auth-btn btn blue" value="Log In" type="submit">
 
         <div class="bot-links">
-            <a>Forgot Password</a> - <a href="/register">Sign up</a>
+            <a href="/register">Register</a> | <a href="/privacy">Privacy Policy</a>
         </div>
     </form>
 
   </div>
+
+</div>
