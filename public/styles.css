@@ -157,11 +157,116 @@ input .auth-btn {
 }
 
 
+
+
+
+/*   
+
+
+MARKETPLACE
+
+
+*/
+
+
+.market-place {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
+
+.card {
+  position: relative;
+  margin: .5rem 0 1rem 0;
+  background-color: #fff;
+  -webkit-transition: -webkit-box-shadow .25s;
+  transition: -webkit-box-shadow .25s;
+  transition: box-shadow .25s;
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+  border-radius: 2px;
+  width: 20%;
+  margin: 1rem;
+}
+
+.card-image {
+  position: relative;
+}
+
+.card .card-image img {
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.card-image .card-title {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  padding: 24px;
+}
+
+.card .card-title {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.card .card-content {
+  padding: 24px;
+  border-radius: 0 0 2px 2px;
+}
+
+.card .card-content p {
+  margin: 0;
+}
+
+.card .card-action:last-child {
+  border-radius: 0 0 2px 2px;
+}
+
+.card .card-action {
+  background-color: inherit;
+  border-top: 1px solid rgba(160,160,160,0.2);
+  position: relative;
+  padding: 16px 24px;
+}
+
+.index-bar {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background: #eaeeff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-bar p {
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+
 @media (max-width: 900px) and (min-width: 300px) {
 
 
 .index-bar {
   font-size: 90%;
+}
+
+.card {
+  width: 95%;
 }
 
 }

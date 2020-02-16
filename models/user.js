@@ -16,7 +16,8 @@ const UserSchema = new Schema({
   bio: String,
   location: String,
   contact: String,
-  links: [String]
+  links: [String],
+  gamer: Boolean
 });
 
 UserSchema.pre('save', function(next) {

@@ -18,7 +18,7 @@ module.exports = (app) => {
   // SIGN UP POST
   app.post('/register/', (req, res) => {
     // Create User and JWT
-    const user = new User({username: req.body.username, password: req.body.password});
+    const user = new User({username: req.body.username, password: req.body.password, gamer: true});
     recaptcha.verify(req, function(error, data){
 
       User.findOne({ username : req.body.username }, 'username password').then((user) => {

@@ -34,13 +34,18 @@ module.exports = (app) => {
 
   app.get('/market', (req, res) => {
 
-    if (req.user) {
-      User.findById(req.user._id, (err, user) => {
-        res.render('index/market', { currentUser: user });
-      })
-    } else {
-      res.render('index/market');
-    }
+    User.find({gamer: true}).then((gamers) => {
+      console.log('first', gamers)
+      if (req.user) {
+        User.findById(req.user._id, (err, user) => {
+          console.log(gamers)
+          res.render('index/market', { currentUser: user, gamers: gamers });
+        })
+      } else {
+        res.render('index/market', {gamers: gamers});
+      }
+    })
+
 
   })
 
@@ -82,18 +87,17 @@ app.get('/profiles/:username', (req, res) => {
 
 
   User.findOne({username: req.params.username}).then((profile) => {
-    const prof = profile;
     if (req.user) {
       User.findById(req.user._id).then((user) => {
 
         let sameUser = false;
 
-        if (prof.username === user.username) {
+        if (profile.username === user.username) {
           sameUser = true
         }
 
 
-        res.render('index/profile', { profile: prof, currentUser: user, sameUser: sameUser  });
+        res.render('index/profile', { profile: profile, currentUser: user, sameUser: sameUser  });
       })
     } else {
       res.render('index/profile', { profile: profile });
