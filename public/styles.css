@@ -211,8 +211,9 @@ MARKETPLACE
   position: absolute;
   bottom: 0;
   left: 0;
-  max-width: 100%;
+  width: 100%;
   padding: 24px;
+  background: rgba(0,0,0,.3);
 }
 
 .card .card-title, .card .card-title a {
