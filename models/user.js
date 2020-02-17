@@ -17,7 +17,8 @@ const UserSchema = new Schema({
   location: String,
   contact: String,
   links: [String],
-  gamer: Boolean
+  gamer: Boolean,
+  pending: {type: Boolean, default: true}
 });
 
 UserSchema.pre('save', function(next) {

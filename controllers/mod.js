@@ -14,14 +14,13 @@ module.exports = (app) => {
     app.get('/mod', (req, res) => {
       let currentUser;
 
-      Player.find({pending : true}).then((players) => {
-        Faction.find({pending : true}).then((factions) => {
+      User.find({pending : true}).then((players) => {
 
 
       if (req.user) {
         User.findById(req.user._id, (err, user) => {
           if (user.mod) {
-            res.render('index/mod', { currentUser: user, players, factions });
+            res.render('index/mod', { currentUser: user, players });
           } else {
             res.send('no');
           }
@@ -29,7 +28,6 @@ module.exports = (app) => {
       } else {
       res.send('no');
       }
-    })
     })
   })
 
@@ -42,7 +40,7 @@ module.exports = (app) => {
     if (req.user) {
       User.findById(req.user._id, (err, user) => {
         if (user.mod) {
-          Player.findById(req.params.playerid, (err, player) => {
+          User.findById(req.params.playerid, (err, player) => {
             player.pending = false;
             player.save((err,player) => {
               if(err) throw err;
@@ -127,7 +125,7 @@ app.post('/players/delete/:id', function (req, res) {
   if (req.user) {
     User.findById(req.user._id, (err, user) => {
       if (user.mod) {
-        Player.findByIdAndRemove(req.params.id).then((player) => {
+        User.findByIdAndRemove(req.params.id).then((player) => {
           res.redirect('back');
         }).catch((err) => {
           console.log(err.message);
@@ -186,7 +184,7 @@ app.post('/comments/delete/:commentid', function (req, res) {
   //EDIT PLAYER PAGE
   app.get('/players/:playername/edit', (req, res) => {
 
-    Player.find({username : req.params.playername}).then((players) => {
+    User.find({username : req.params.playername}).then((players) => {
       console.log(players.id);
     Comment.find({ playerId : players[0].id }).then((comments) => {
 
@@ -235,7 +233,7 @@ app.post('/comments/delete/:commentid', function (req, res) {
         if (user.mod) {
 
 
-               Player.findByIdAndUpdate(req.params.id, req.body).then((player) => {
+               User.findByIdAndUpdate(req.params.id, req.body).then((player) => {
                  res.redirect('/mod')
                }).catch((err) => {
                  console.log(err.message)

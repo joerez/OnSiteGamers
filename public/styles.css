@@ -206,7 +206,7 @@ MARKETPLACE
   width: 100%;
 }
 
-.card-image .card-title {
+.card-image .card-title, .card-image .card-title a {
   color: #fff;
   position: absolute;
   bottom: 0;
@@ -215,7 +215,7 @@ MARKETPLACE
   padding: 24px;
 }
 
-.card .card-title {
+.card .card-title, .card .card-title a {
   font-size: 24px;
   font-weight: 300;
 }
@@ -236,8 +236,8 @@ MARKETPLACE
 .card .card-action {
   background-color: inherit;
   border-top: 1px solid rgba(160,160,160,0.2);
-  position: relative;
   padding: 16px 24px;
+  position: static;
 }
 
 .index-bar {
@@ -256,6 +256,33 @@ MARKETPLACE
   font-weight: 600;
   font-size: 20px;
 }
+
+.card .card-action .row {
+  display: flex;
+}
+
+.row, .admin-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.row .admin-buttons button {
+  margin-right: 20px;
+  transition: all 150ms;
+  cursor: pointer;
+}
+
+.row .admin-buttons button:hover {
+  transform: scale(1.05);
+}
+
+
+.edit-button {
+  position: absolute;
+  top: 1rem;
+  right: -1rem;
+}
+
 
 
 @media (max-width: 900px) and (min-width: 300px) {

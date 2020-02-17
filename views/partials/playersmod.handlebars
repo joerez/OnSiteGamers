@@ -1,25 +1,28 @@
 <div class="player-section">
   <div class="center-button">
-    <a class="btn blue waves-effect waves-white" href="/players/new">Submit Player</a>
   </div>
 
-  <div class="grid">
+  <div class="market-place">
     {{#each players}}
 
-
-
-
-
-      <div class="player waves-effect waves-light">
-        <img src={{this.imgurl}} />
-        <p><a href="/players/{{this.username}}">{{this.username}}</a></p>
-
-        {{#if ../currentUser.mod}}
+        <div class="card">
+        <div class="card-image">
+          <img src="{{this.photo}}" alt="{{this.firstName}} {{this.lastName}}">
+          <span class="card-title"><a href="/profiles/{{this.username}}">{{this.firstName}} {{this.lastName}}</a></span>
+        </div>
+        <div class="card-content">
+          <p>{{this.bio}}</p>
+        </div>
+        <div class="card-action row">
+          {{#if ../currentUser.mod}}
           <div class="admin-buttons">
             <!--Delete-->
-            <form method="POST" action="/players/delete/{{this._id}}">
-              <button class="delete-button" type="submit"><i class="material-icons">delete</i></button>
-            </form>
+            <div>
+              <form method="POST" action="/players/delete/{{this._id}}">
+                <button class="delete-button" type="submit"><i class="material-icons">delete</i></button>
+              </form>
+
+            </div>
 
             <a class="edit-button" href="players/{{this.username}}/edit"><i class="material-icons">edit</i></a>
 
@@ -32,8 +35,17 @@
             </form>
           </div>
         {{/if}}
+
+        </div>
       </div>
+
+
+
+
     {{/each}}
+
+
+    
 
   </div>
 </div>

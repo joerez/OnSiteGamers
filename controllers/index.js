@@ -34,7 +34,7 @@ module.exports = (app) => {
 
   app.get('/market', (req, res) => {
 
-    User.find({gamer: true}).then((gamers) => {
+    User.find({gamer: true, pending: false}).then((gamers) => {
       console.log('first', gamers)
       if (req.user) {
         User.findById(req.user._id, (err, user) => {
