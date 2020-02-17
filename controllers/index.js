@@ -36,10 +36,11 @@ module.exports = (app) => {
 
     User.find({gamer: true, pending: false}).then((gamers) => {
       console.log('first', gamers)
+
       if (req.user) {
         User.findById(req.user._id, (err, user) => {
           console.log(gamers)
-          res.render('index/market', { currentUser: user, gamers: gamers });
+          res.render('index/market', { currentUser: user, gamers: gamers.reverse() });
         })
       } else {
         res.render('index/market', {gamers: gamers});
