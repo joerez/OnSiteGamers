@@ -110,7 +110,7 @@ input .auth-btn {
   display: inline-block;
   background: #0069c9;
   color: white;
-  width: 520px;
+  width: 470px;
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 100px;
@@ -118,7 +118,7 @@ input .auth-btn {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 30px;
   margin-right: 30px;
   transition: all 150ms;
 }
