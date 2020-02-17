@@ -40,7 +40,6 @@ app.post('/players/new', requireLogin, (req, res) => {
   newPlayer.description = req.body.description;
   newPlayer.imgurl = req.body.imgurl;
   newPlayer.pending = true;
-  console.log(req.body);
 
   recaptcha.verify(req, function(error, data){
        if(!error)
@@ -63,7 +62,6 @@ app.post('/players/new', requireLogin, (req, res) => {
 app.get('/players/:playername', (req, res) => {
 
   Player.find({username : req.params.playername}).then((players) => {
-    console.log(players.id);
   Comment.find({ playerId : players[0].id }).then((comments) => {
 
     for (let i = 0; i < comments.length; i++) {
@@ -94,7 +92,6 @@ app.get('/players/:playername', (req, res) => {
 app.get('/playersid/:playerid', (req, res) => {
 
   Player.find({_id : req.params.playerid}).then((players) => {
-    console.log(players.id);
   Comment.find({ playerId : players[0].id }).then((comments) => {
 
 
