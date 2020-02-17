@@ -322,6 +322,7 @@ MARKETPLACE
 }
 
 .steps {
+  display: none;
   flex-wrap: wrap;
   height: fit-content;
 }
@@ -360,7 +361,12 @@ MARKETPLACE
   transform: translateY(-2px);
 }
 
+.why-title {
+  display: none !important;
+}
+
 .why-text {
+  display: none !important;
   max-width: 90%;
   font-weight: normal;
 }
@@ -385,6 +391,14 @@ MARKETPLACE
 
 .cta-btn {
   width: 100% !important;
+}
+
+.extra-cta {
+  display: none !important;
+}
+
+.love-in-sf {
+  display: none !important;
 }
 
 }
