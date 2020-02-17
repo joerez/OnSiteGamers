@@ -317,8 +317,8 @@ MARKETPLACE
 }
 
 .nav-wrapper a {
-  font-size: 12px;
-  padding: 0 13px;
+  font-size: 10px;
+  padding: 0 6px;
 }
 
 .right {
@@ -366,6 +366,10 @@ MARKETPLACE
 
 .profile-container img {
   width: 100%;
+}
+
+.cta-btn {
+  width: 100% !important;
 }
 
 }
