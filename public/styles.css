@@ -212,8 +212,8 @@ MARKETPLACE
 }
 
 .card .card-image img:hover {
-  transform: scale(1.1) rotate(2deg);
-  filter: brightness(1.05);
+  transform: scale(1.05) rotate(.5deg);
+  filter: brightness(.8);
 }
 
 .card-image .card-title, .card-image .card-title a {
