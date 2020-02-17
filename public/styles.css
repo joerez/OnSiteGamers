@@ -185,7 +185,7 @@ MARKETPLACE
 
 .market-place {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   width: 100vw;
