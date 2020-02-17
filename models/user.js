@@ -18,6 +18,8 @@ const UserSchema = new Schema({
   contact: String,
   links: [String],
   gamer: Boolean,
+  sliderValue: {type: String, default: 50},
+  colorValue: {type: String, default: 'rgba(255,255,255,1)'},
   pending: {type: Boolean, default: true}
 });
 

@@ -115,6 +115,8 @@ app.post('/profiles/:username', (req, res) => {
     user.bio = req.body.bio;
     user.photo = req.body.photo;
     user.contact = req.body.contact;
+    user.colorValue = req.body.colorValue;
+    user.sliderValue = req.body.sliderValue;
     user.location = req.body.location;
     user.save().then((user) => {
       res.redirect('/profiles/' + user.username)

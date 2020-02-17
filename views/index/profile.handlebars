@@ -1,11 +1,11 @@
   <title>OnSiteGamers | {{this.firstName}} {{this.lastName}}</title>
-  <div class="profile-page">
+  <div id="container" class="profile-page" style="background: {{profile.colorValue}}">
 
 
 <h3 align="center">{{profile.username}}</h3>
 
 
-<div class="profile-container">
+<div class="profile-container" style="background: white">
   {{#if sameUser}}
     <form method="POST" action="/profiles/{{profile.username}}">
     <img src="{{profile.photo}}" />
@@ -36,6 +36,12 @@
       <input name="location" placeholder="location" value="{{profile.location}}" />
     </div>
 
+    <div class="rkmd-slider slider-continuous slider-lightBlue">
+      <input name="sliderValue" id="slider" type="range" min="0" max="100" value={{profile.sliderValue}}>
+    </div>
+
+    <input name="colorValue" value="{{profile.colorValue}}" type="hidden" id="colorValue" />
+
     <input type="submit" value="Save" />
     </form>
 
@@ -52,6 +58,47 @@
 
 
   </div>
+
+
+  <script>
+
+    // rgba(41, 128, 185,1.0) blue
+
+    // rgba(255, 255, 255,1.0) white
+
+    // rgba(155, 89, 182,1.0) pink
+
+    let slider = document.getElementById('slider');
+
+    slider.addEventListener("change", (e) => {
+      const value = slider.value;
+      let color = ''
+      let red = '';
+      let green = '';
+      let blue = '';
+
+      if (slider.value < 50) {
+        red = lerp(155, 255, slider.value / 50);
+        green = lerp(89, 255, slider.value / 50);
+        blue = lerp(182, 255, slider.value / 50);
+      } else if (slider.value > 50) {
+        red = lerp(255, 41, slider.value / 50 - 1);
+        green = lerp(255, 128, slider.value / 50 - 1);
+        blue = lerp(255, 185, slider.value / 50 - 1);
+      }
+
+      document.getElementById('container').style.backgroundColor = `rgba(${red}, ${green}, ${blue})`;
+      document.getElementById('colorValue').value = `rgba(${red}, ${green}, ${blue})`;
+
+      
+      console.log(color)
+    })
+
+    function lerp(lo, hi, pos) {
+      return lo + pos * (hi - lo);
+    }
+
+  </script>
   
   
 
