@@ -194,6 +194,9 @@ MARKETPLACE
 
 .card-image {
   position: relative;
+  width: 100%;
+  max-height: 380px;
+  overflow: hidden;
 }
 
 .card .card-image img {
@@ -205,6 +208,12 @@ MARKETPLACE
   top: 0;
   bottom: 0;
   width: 100%;
+  transition: all 3s;
+}
+
+.card .card-image img:hover {
+  transform: scale(1.1) rotate(2deg);
+  filter: brightness(1.05);
 }
 
 .card-image .card-title, .card-image .card-title a {
