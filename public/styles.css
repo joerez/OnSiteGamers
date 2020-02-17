@@ -189,6 +189,7 @@ MARKETPLACE
   border-radius: 2px;
   width: 20%;
   margin: 1rem;
+  flex-grow: 0;
 }
 
 .card-image {
