@@ -88,12 +88,17 @@ input .auth-btn {
   line-height: 42px;
 }
 
+.hero-title {
+  margin-top: 340px;
+}
+
 .why-title {
   margin-top: 80px;
 }
 
 .accent {
   color: #0069c9;
+  font-weight: bold;
 }
 
 .cta-con {
@@ -121,7 +126,7 @@ input .auth-btn {
   text-align: center;
   max-width: 60%;
   font-size: 25px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .steps {
@@ -305,6 +310,62 @@ MARKETPLACE
 
 .card {
   width: 95%;
+}
+
+.steps {
+  flex-wrap: wrap;
+}
+
+.nav-wrapper a {
+  font-size: 12px;
+  padding: 0 13px;
+}
+
+.right {
+  float: none;
+}
+
+.hero-title {
+  margin-top: 40px;
+}
+
+.cta-con {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta-btn {
+  display: block;
+  font-size: 27px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 90%;
+  margin-right: 0;
+}
+
+.why-text {
+  max-width: 90%;
+  font-weight: normal;
+}
+
+.steps h1 {
+  width: 90%;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.index-bar {
+  height: 80px;
+}
+
+.profile-container {
+  max-width: 95%;
+}
+
+.profile-container img {
+  width: 100%;
 }
 
 }
