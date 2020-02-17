@@ -319,6 +319,7 @@ MARKETPLACE
 
 .steps {
   flex-wrap: wrap;
+  height: fit-content;
 }
 
 .nav-wrapper a {
@@ -338,6 +339,7 @@ MARKETPLACE
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: fit-content;
 }
 
 .cta-btn {
