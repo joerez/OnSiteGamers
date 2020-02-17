@@ -75,7 +75,7 @@ input .auth-btn {
   flex-direction: column;
   align-items: center;
   padding-top: 50px;
-  background: url('https://i.ibb.co/w6CXSCD/undraw-gaming-6oy3.png');
+  /* background: url('https://i.ibb.co/w6CXSCD/undraw-gaming-6oy3.png'); */
   background-repeat: no-repeat;
   background-position: top;
   background-size: 30%;
@@ -89,7 +89,6 @@ input .auth-btn {
 }
 
 .hero-title {
-  margin-top: 340px;
 }
 
 .why-title {
@@ -332,7 +331,6 @@ MARKETPLACE
 }
 
 .hero-title {
-  margin-top: 40px;
 }
 
 .cta-con {
