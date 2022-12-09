@@ -17,7 +17,7 @@
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "dotenv": "^5.0.1",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.0",
     "express-handlebars-paginate": "^1.0.3",
     "express-recaptcha": "^3.0.1",
